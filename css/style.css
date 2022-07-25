@@ -54,11 +54,6 @@ img {
    padding: 0 15px;
 }
 
-.wrapper {
-   display: flex;
-   flex-direction: column;
-}
-
 /*==================== HEADER ====================*/
 
 .header {
