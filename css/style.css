@@ -78,6 +78,22 @@ img {
 
 .logo i {
    font-size: 2.3rem;
+   animation: logoRotate .7s;
+}
+
+@keyframes logoRotate {
+   0% {
+      transform: rotate(0);
+   }
+   50% {
+      transform: rotate(370deg);
+   }
+   70% {
+      transform: rotate(350deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
 }
 
 .header__text {
@@ -207,7 +223,7 @@ img {
    position: absolute;
    bottom: 0;
    right: 0;
-
+   
    background-color: #4178dc;
    padding: 1.5rem;
    border-radius: 2rem 0 2rem 0;
