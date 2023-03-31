@@ -9,13 +9,13 @@ window.addEventListener('DOMContentLoaded', () => {
    const sliderPrevBtn = document.querySelector('.slider__arrow_prev');
    const slides = document.querySelectorAll('.slider__item-wrapper');
    const progressBar = document.querySelector('.slider__progress-bar');
-   
+
    let count = 1;
    let offset = 0;
    let x1 = null;
    let y1 = null;
    let progressWidth = 0;
-      
+
    sliderInner.style.width = 100 * slides.length + '%';
 
    function slidesMoveNext() {
@@ -27,6 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
          progressWidth += 100 / slides.length;
       }
 
+      sliderInner.classList.remove('slider__inner_animation');
       progressBar.style.width = progressWidth + '%';
       sliderInner.style.transform = `translateX(-${offset / count}%)`;
    }
@@ -40,6 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
          progressWidth -= 100 / slides.length;
       }
 
+      sliderInner.classList.remove('slider__inner_animation');
       progressBar.style.width = progressWidth + '%';
       sliderInner.style.transform = `translateX(-${offset / count}%)`;
    }
@@ -57,20 +59,9 @@ window.addEventListener('DOMContentLoaded', () => {
    } else if (document.documentElement.clientWidth <= 768) {
       slidesWidth(1);
       sliderInner.classList.add('slider__inner_animation');
-      setTimeout(() => sliderInner.classList.remove('slider__inner_animation'), 8000);
    }
 
    progressBar.style.width = progressWidth + '%';
-
-   window.addEventListener('resize', () => {
-      if (document.documentElement.clientWidth > 1024) {
-         slidesWidth(3);
-      } else if (document.documentElement.clientWidth <= 1024 && document.documentElement.clientWidth > 768) {
-         slidesWidth(2);
-      } else if (document.documentElement.clientWidth <= 768) {
-         slidesWidth(1);
-      }
-   });
 
    sliderNextBtn.addEventListener('click', slidesMoveNext);
    sliderPrevBtn.addEventListener('click', slidesMovePrev);
