@@ -2,6 +2,18 @@
 
 window.addEventListener('DOMContentLoaded', () => {
 
+   // preloader
+
+   const preloader = document.querySelector('.preloader');
+
+   document.body.onload = () => {
+      setTimeout(() => {
+         if (!preloader.classList.contains('preloader_done')) {
+            preloader.classList.add('preloader_done');
+         }
+      }, 1000);
+   }
+
    // slider
 
    const sliderInner = document.querySelector('.slider__inner');
